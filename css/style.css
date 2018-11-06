@@ -1,0 +1,25 @@
+body{
+    padding: 0;
+    margin: 0;
+    background: black;
+}
+#ui-container{
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+header{
+    position: fixed;
+    width: 100vw;
+    height: 5vh;
+    background: white;
+    z-index: 200;
+}
+footer{
+    position: fixed;
+    width: 100vw;
+    height: 5vh;
+    background: white;
+    bottom: 0;
+    z-index: 200;
+}
