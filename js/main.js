@@ -52,26 +52,38 @@ tileArray[2] = 'tile_building';
 tileArray[3] = 'tile_building_low';
 tileArray[4] = 'tile_building_high';
 tileArray[5] = 'tile_building_tiny';
+tileArray[6] = 'tile_building_concrete';
 
 var tiles = [
-    5,4,2,0,1,1,0,
+    3,4,2,0,1,1,0,
     0,1,3,2,3,4,0,
-    0,1,2,5,5,2,0,
-    0,0,0,5,2,1,0,
-    0,1,5,0,4,0,0,
-    1,0,0,0,5,5,5,
-    2,3,4,1,1,2,5
+    0,1,2,3,2,2,0,
+    0,0,0,3,2,1,0,
+    0,1,4,0,4,0,0,
+    1,0,0,0,4,2,0,
+    2,3,4,1,1,2,3
 ];
+
+// var tiles = [
+//     5,5,5,5,5,5,5,
+//     5,5,5,5,5,5,5,
+//     5,5,5,5,5,5,5,
+//     5,5,5,5,5,5,5,
+//     5,5,5,5,5,5,5,
+//     5,5,5,5,5,6,5,
+//     5,5,5,5,5,5,6,
+// ];
 
 BasicGame.Boot.prototype =
 {
     preload: function () {
-        game.load.image('tile_green', '../assets/tile_green.png');
-        game.load.image('tile_yellow', '../assets/tile_yellow.png');
-        game.load.image('tile_building', '../assets/tile_building.png');
-        game.load.image('tile_building_low', '../assets/tile_building_low.png');
-        game.load.image('tile_building_high', '../assets/tile_building_high.png');
-        game.load.image('tile_building_tiny', '../assets/tile_building_tiny.png');
+        game.load.image('tile_green', 'assets/tile_green.png');
+        game.load.image('tile_yellow', 'assets/tile_yellow.png');
+        game.load.image('tile_building', 'assets/tile_building.png');
+        game.load.image('tile_building_low', 'assets/tile_building_low.png');
+        game.load.image('tile_building_high', 'assets/tile_building_high.png');
+        game.load.image('tile_building_tiny', 'assets/tile_building_tiny.png');
+        game.load.image('tile_building_concrete', 'assets/tile_building_concrete.png');
 
         game.time.advancedTiming = true;
 
