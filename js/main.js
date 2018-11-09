@@ -105,7 +105,7 @@ BasicGame.Boot.prototype =
             isoGroup.destroy();
             this.spawnTiles();
         });
-        
+
     },
     update: function () {
         // Update the cursor position.
