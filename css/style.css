@@ -8,13 +8,14 @@ body{
 }
 #ui-container{
     position: fixed;
-    z-index: 1000;
+    /* z-index: 1000; */
     /* background: red; */
     width: 100vw;
     height: 100vh;
 }
 header{
     position: absolute;
+    z-index: 1000;
     width: 100vw;
     height: 5vh;
     background: white;
@@ -22,6 +23,7 @@ header{
 }
 footer{
     position: absolute;
+    z-index: 1000;
     width: 100vw;
     height: 5vh;
     background: white;
