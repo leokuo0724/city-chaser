@@ -1,32 +1,100 @@
-body{
-    padding: 0;
-    margin: 0;
-    background: black;
-    width: 100vw;
-    height: 100vh;
-    /* overflow: scroll; */
+body {
+  background: black;
+  width: 100vw;
+  height: 100vh;
 }
-#container{
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background: red;
-    overflow: scroll;
+
+#container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: red;
+  overflow: scroll;
 }
-header{
-    position: fixed;
-    z-index: 1000;
-    width: 100vw;
-    height: 50px;
-    background: white;
-    /* z-index: 200; */
+#container header {
+  font-size: 14px;
+  position: fixed;
+  z-index: 1000;
+  margin: 20px 0 0 20px;
+  width: 50%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
 }
-footer{
-    position: fixed;
-    z-index: 1000;
-    width: 100vw;
-    height: 50px;
-    background: white;
-    bottom: 0;
-    /* z-index: 200; */
+#container header #upper-layer {
+  flex: 3;
+  display: flex;
 }
+#container header #upper-layer #portrait {
+  flex: 1;
+  background: white;
+  border-radius: 100px;
+  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.1);
+}
+#container header #upper-layer #basic-info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+#container header #upper-layer #basic-info #money {
+  flex: 1;
+  padding-left: 20px;
+}
+#container header #upper-layer #basic-info #population {
+  flex: 1;
+  padding-left: 20px;
+}
+#container header #upper-layer #basic-info .bg-container {
+  width: 100%;
+  height: 90%;
+  background: white;
+  border-radius: 100px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.1);
+}
+#container header #upper-layer #basic-info .bg-container p {
+  display: inline;
+  flex: 1;
+  color: #03B5AA;
+}
+#container header #upper-layer #basic-info .bg-container span {
+  flex: 2;
+  text-align: right;
+  color: #707070;
+}
+#container header #lower-layer {
+  flex: 1;
+  padding-top: 5px;
+  color: #03B5AA;
+}
+#container footer {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 64px;
+  background: white;
+  bottom: 0;
+  display: flex;
+}
+#container footer #new-building {
+  position: absolute;
+  text-align: center;
+  font-size: 30px;
+  width: 56px;
+  height: 56px;
+  line-height: 50px;
+  background: #03B5AA;
+  border-radius: 28px;
+  top: -28px;
+  cursor: pointer;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.4);
+}
+#container footer .footer-btn {
+  flex: 1;
+  text-align: center;
+  font-size: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */

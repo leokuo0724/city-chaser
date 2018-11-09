@@ -33,8 +33,10 @@
 // game.state.start('GameState');
 
 // var game = new Phaser.Game(1200, 800, Phaser.AUTO, 'test', null, true, false);
+
 var wH = window.innerHeight;
 var wW = window.innerWidth;
+$('#new-building').css({left:innerWidth/2-28});
 var game = new Phaser.Game(wW, wH, Phaser.AUTO,'test');
 
 var BasicGame = function (game) { };
@@ -65,6 +67,7 @@ var tiles = [
 BasicGame.Boot.prototype =
 {
     preload: function () {
+        game.load.image('bg','assets/bg.png')
         game.load.image('tile_green', 'assets/tile_green.png');
         game.load.image('tile_yellow', 'assets/tile_yellow.png');
         game.load.image('tile_building', 'assets/tile_building.png');
@@ -80,19 +83,29 @@ BasicGame.Boot.prototype =
 
         // This is used to set a game canvas-based offset for the 0, 0, 0 isometric coordinate - by default
         // this point would be at screen coordinates 0, 0 (top left) which is usually undesirable.
-        game.iso.anchor.setTo(0.5, 0.3);
+        game.iso.anchor.setTo(0.5, 0.5);
 
 
     },
     create: function () {
+        game.backgrond = this.game.add.tileSprite(0, 0, wW, wH, 'bg');
+
         // Create a group for our tiles.
-        isoGroup = game.add.group();
+        // isoGroup = game.add.group();
 
         // Let's make a load of tiles on a grid.
         this.spawnTiles();
 
         // Provide a 3D position for the cursor
         cursorPos = new Phaser.Plugin.Isometric.Point3();
+
+        // 重新繪製圖面
+        $('#new-building').click(()=>{
+            tiles[3] = 6;
+            isoGroup.destroy();
+            this.spawnTiles();
+        });
+        
     },
     update: function () {
         // Update the cursor position.
@@ -116,14 +129,16 @@ BasicGame.Boot.prototype =
                 game.add.tween(tile).to({ isoZ: 0 }, 200, Phaser.Easing.Quadratic.InOut, true);
             }
         });
+
     },
     render: function () {
-        game.debug.text("isometric city!", 2, 36, "#ffffff");
-        game.debug.text(game.time.fps || '--', 2, 14, "#a7aebe");
+        // game.debug.text("isometric city!", 2, 90, "#ffffff");
+        // game.debug.text(game.time.fps || '--', 2, 70, "#a7aebe");
     },
     spawnTiles: function () {
+        isoGroup = game.add.group();
         var tile;
-        var size = 76, scale = 7;
+        var size = 76, scale = 2;
         var i = 0;
         for (var xx = 0; xx < size*scale; xx += size) {
             for (var yy = 0; yy < size*scale; yy += size) {
@@ -134,6 +149,10 @@ BasicGame.Boot.prototype =
         }
     }
 };
+
+$('#new-building').click(()=>{
+    console.log(1);
+});
 
 game.state.add('Boot', BasicGame.Boot);
 game.state.start('Boot');

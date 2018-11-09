@@ -7,19 +7,42 @@
     <title>Document</title>
     <script src="./js/phaser.min.js"></script>
     <script src="./js/phaser-plugin-isometric.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div id="container">
-        <header>header</header>
-        <div id="test"></div>
-        <footer>footer</footer>
-    </div>
+        <header>
+            <div id="upper-layer">
+                <div id="portrait"></div>
+                <div id="basic-info">
+                    <div id="money">
+                        <div class="bg-container">
+                            <p>金錢</p><span>300</span>
+                        </div>      
+                    </div>
+                    <div id="population">
+                        <div class="bg-container">
+                            <p>人口</p><span>1</span>
+                        </div>      
+                    </div>
+                </div>
+            </div>
+            <div id="lower-layer">台南市 Lv.<span>1</span></div>
+        </header>
 
-<!-- 
-    <div id="game-map">
-        
-    </div> -->
+        <!-- phaser canvas -->
+        <div id="test"></div>
+
+        <footer>
+            <div id="new-building">+</div>
+            <div id="collect-btn" class="footer-btn">收集資源</div>
+            <div id="source-btn" class="footer-btn">收集資源</div>
+            <div id="develop-btn" class="footer-btn">收集資源</div>
+            <div id="setting-btn" class="footer-btn">收集資源</div>
+        </footer>
+    </div>
     
 </body>
 <script src="./js/main.js"></script>

@@ -1,0 +1,88 @@
+$color-main1: #03B5AA
+$color-main2: #707070
+
+body
+    background: black
+    width: 100vw
+    height: 100vh
+#container
+    position: fixed
+    width: 100vw
+    height: 100vh
+    background: red
+    overflow: scroll
+    header
+        font-size: 14px
+        position: fixed
+        z-index: 1000
+        margin: 20px 0 0 20px
+        width: 50%
+        height: 100px
+        // background: white
+        display: flex
+        flex-direction: column
+        #upper-layer
+            flex: 3
+            display: flex
+            #portrait
+                flex: 1
+                background: white
+                border-radius: 100px
+                box-shadow: 0px 1px 6px 0px rgba(black, 0.1)
+            #basic-info
+                flex: 2
+                display: flex
+                flex-direction: column
+                #money
+                    flex: 1
+                    padding-left: 20px
+                #population
+                    flex: 1
+                    // background: yellow
+                    padding-left: 20px
+                .bg-container
+                    width: 100%
+                    height: 90%
+                    background: white
+                    border-radius: 100px
+                    padding: 0 10px
+                    display: flex
+                    align-items: center
+                    box-shadow: 0px 1px 6px 0px rgba(black, 0.1)
+                    p
+                        display: inline
+                        flex:1
+                        color: $color-main1
+                    span
+                        flex:2
+                        text-align: right
+                        color: $color-main2
+                        
+        #lower-layer
+            flex: 1
+            padding-top: 5px
+            color: $color-main1
+    footer
+        position: fixed
+        z-index: 1000
+        width: 100%
+        height: 64px
+        background: white
+        bottom: 0
+        display: flex
+        #new-building
+            position: absolute
+            text-align: center
+            font-size: 30px
+            width: 56px
+            height: 56px
+            line-height: 50px
+            background: $color-main1
+            border-radius: 28px
+            top: -28px
+            cursor: pointer
+            box-shadow: 0px 1px 2px 1px rgba(black, 0.4)
+        .footer-btn
+            flex: 1
+            text-align: center
+            font-size: 10px
