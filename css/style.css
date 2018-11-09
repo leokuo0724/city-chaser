@@ -4,22 +4,29 @@ body{
     background: black;
     width: 100vw;
     height: 100vh;
+    /* overflow: scroll; */
+}
+#container{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: red;
     overflow: scroll;
 }
 header{
     position: fixed;
     z-index: 1000;
-    width: 100%;
+    width: 100vw;
     height: 50px;
     background: white;
-    z-index: 200;
+    /* z-index: 200; */
 }
 footer{
     position: fixed;
     z-index: 1000;
-    width: 100%;
+    width: 100vw;
     height: 50px;
     background: white;
     bottom: 0;
-    z-index: 200;
+    /* z-index: 200; */
 }

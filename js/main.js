@@ -33,7 +33,9 @@
 // game.state.start('GameState');
 
 // var game = new Phaser.Game(1200, 800, Phaser.AUTO, 'test', null, true, false);
-var game = new Phaser.Game(1200, 800, Phaser.AUTO,'test');
+var wH = window.innerHeight;
+var wW = window.innerWidth;
+var game = new Phaser.Game(wW, wH, Phaser.AUTO,'test');
 
 var BasicGame = function (game) { };
 
