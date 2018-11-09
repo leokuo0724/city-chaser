@@ -5,8 +5,6 @@
 
 // var game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO);
 
-
-
 // var GameState = {
 //     preload: function(){
 //         this.load.image('background', '../assets/background.jpg');
@@ -34,9 +32,6 @@
 // game.state.add('GameState', GameState);
 // game.state.start('GameState');
 
-
-
-
 var game = new Phaser.Game(1200, 800, Phaser.AUTO, 'test', null, true, false);
 
 var BasicGame = function (game) { };
@@ -56,23 +51,13 @@ tileArray[6] = 'tile_building_concrete';
 
 var tiles = [
     3,4,2,0,1,1,0,
-    0,1,3,2,3,4,0,
-    0,1,2,3,2,2,0,
+    0,1,0,2,3,4,0,
+    0,1,2,1,0,1,0,
     0,0,0,3,2,1,0,
-    0,1,4,0,4,0,0,
+    0,1,4,0,3,0,0,
     1,0,0,0,4,2,0,
-    2,3,4,1,1,2,3
+    2,3,4,1,0,2,3
 ];
-
-// var tiles = [
-//     5,5,5,5,5,5,5,
-//     5,5,5,5,5,5,5,
-//     5,5,5,5,5,5,5,
-//     5,5,5,5,5,5,5,
-//     5,5,5,5,5,5,5,
-//     5,5,5,5,5,6,5,
-//     5,5,5,5,5,5,6,
-// ];
 
 BasicGame.Boot.prototype =
 {
@@ -99,27 +84,6 @@ BasicGame.Boot.prototype =
     create: function () {
         // Create a group for our tiles.
         isoGroup = game.add.group();
-
-        // var tiles = [
-        //     1,1,1,1,1,1,1,
-        //     1,1,1,1,1,1,1,
-        //     1,1,1,1,1,1,1,
-        //     1,1,1,1,1,1,1,
-        //     1,1,1,1,1,1,1,
-        //     1,1,1,1,1,1,1,
-        //     1,1,1,1,1,1,1,
-        // ];
-        // var size = 76;
-        // var i=0;
-        // for(var y=0; y<=531; y+=size){
-        //     for(var x=0; x<=531; x+=size){
-        //         tile = game.add.isoSprite(x, y, 0, tileArray[tiles[i]], isoGroup);
-        //         tile.anchor.set(0.5, 1);
-        //         tile.smoothed =false;
-        //         // tile.body.moves = false;
-        //         i++;
-        //     }
-        // }
 
         // Let's make a load of tiles on a grid.
         this.spawnTiles();
@@ -162,7 +126,7 @@ BasicGame.Boot.prototype =
             for (var yy = 0; yy < size*scale; yy += size) {
                 tile = game.add.isoSprite(xx, yy, 0, tileArray[tiles[i]], 0, isoGroup);
                 tile.anchor.set(0.5, 1);
-                i++
+                i++;
             }
         }
     }
