@@ -32,11 +32,47 @@ body {
   justify-content: center;
 }
 #container header #upper-layer #portrait-wrapper #portrait {
-  background: white;
+  background: #03B5AA;
   width: 70px;
   height: 70px;
   border-radius: 35px;
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#container header #upper-layer #portrait-wrapper #portrait #portrait-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  background: white;
+}
+#container header #upper-layer #portrait-wrapper #portrait .circle_left, #container header #upper-layer #portrait-wrapper #portrait .circle_right {
+  position: absolute;
+  border-width: 1px;
+  width: 100%;
+  height: 100%;
+}
+#container header #upper-layer #portrait-wrapper #portrait .circle_left .left, #container header #upper-layer #portrait-wrapper #portrait .circle_left .right, #container header #upper-layer #portrait-wrapper #portrait .circle_right .left, #container header #upper-layer #portrait-wrapper #portrait .circle_right .right {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transform: rotate(0deg);
+  transition: 1s;
+  border-radius: 50%;
+  background: white;
+}
+#container header #upper-layer #portrait-wrapper #portrait .mask {
+  display: none;
+}
+#container header #upper-layer #portrait-wrapper #portrait .circle_right, #container header #upper-layer #portrait-wrapper #portrait .right {
+  clip: rect(0, auto, auto, 38px);
+}
+#container header #upper-layer #portrait-wrapper #portrait .circle_left, #container header #upper-layer #portrait-wrapper #portrait .left {
+  clip: rect(0, 38px, auto, 0);
 }
 #container header #upper-layer #basic-info {
   flex: 2;

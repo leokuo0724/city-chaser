@@ -35,6 +35,19 @@
 // var game = new Phaser.Game(1200, 800, Phaser.AUTO, 'test', null, true, false);
 
 
+$(function(){
+    $('#portrait').each( function(index,el) {
+      var num = $(this).find('span').text() * 3.6 ;
+      if(num<=180){
+        $(this).find('.right').css('transform',"rotate("+num+"deg)");
+      }
+      else{
+        $(this).find('.right').css('transform',"rotate(180deg)");
+        $(this).find('.left').css('transform',"rotate("+(num-180)+"deg)");
+      }
+    })
+  })
+
 // 確認螢幕方向
 $(window).on("deviceorientation resize", function( event ) {
     if (window.matchMedia("(orientation: landscape)").matches) {
