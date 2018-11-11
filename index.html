@@ -13,9 +13,12 @@
 </head>
 <body>
     <div id="container">
+        <!-- city portrait & basic info -->
         <header>
             <div id="upper-layer">
-                <div id="portrait"></div>
+                <div id="portrait-wrapper">
+                    <div id="portrait"></div>
+                </div>
                 <div id="basic-info">
                     <div id="money">
                         <div class="bg-container">
@@ -32,11 +35,17 @@
             <div id="lower-layer">台南市 Lv.<span>1</span></div>
         </header>
 
+        <!-- add new building layer -->
+        <div id="new-building-wrapper">
+            <div id="new-building-section"></div>
+        </div>
+
         <!-- phaser canvas -->
         <div id="test"></div>
 
+        <!-- basic UI -->
         <footer>
-            <div id="new-building">+</div>
+            <div id="new-building-btn">+</div>
             <div id="collect-btn" class="footer-btn">收集資源</div>
             <div id="source-btn" class="footer-btn">收集資源</div>
             <div id="develop-btn" class="footer-btn">收集資源</div>

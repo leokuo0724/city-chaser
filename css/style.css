@@ -25,10 +25,17 @@ body {
   flex: 3;
   display: flex;
 }
-#container header #upper-layer #portrait {
+#container header #upper-layer #portrait-wrapper {
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#container header #upper-layer #portrait-wrapper #portrait {
   background: white;
-  border-radius: 100px;
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.1);
 }
 #container header #upper-layer #basic-info {
@@ -69,6 +76,21 @@ body {
   padding-top: 5px;
   color: #03B5AA;
 }
+#container #new-building-wrapper {
+  position: fixed;
+  z-index: 800;
+  width: 100%;
+  height: 100%;
+  bottom: -100%;
+}
+#container #new-building-wrapper #new-building-section {
+  width: 100%;
+  height: 75%;
+  background: #03B5AA;
+  position: absolute;
+  bottom: 0;
+  border-radius: 24px 24px 0 0;
+}
 #container footer {
   position: fixed;
   z-index: 1000;
@@ -78,7 +100,7 @@ body {
   bottom: 0;
   display: flex;
 }
-#container footer #new-building {
+#container footer #new-building-btn {
   position: absolute;
   text-align: center;
   font-size: 30px;

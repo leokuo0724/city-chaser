@@ -24,11 +24,21 @@ body
         #upper-layer
             flex: 3
             display: flex
-            #portrait
+            // background: red
+            #portrait-wrapper
                 flex: 1
-                background: white
-                border-radius: 100px
-                box-shadow: 0px 1px 6px 0px rgba(black, 0.1)
+                // background: red
+                display: flex
+                align-items: center
+                justify-content: center
+                // border-radius: 100px
+                // box-shadow: 0px 1px 6px 0px rgba(black, 0.1)
+                #portrait
+                    background: white
+                    width: 70px
+                    height: 70px
+                    border-radius: 35px
+                    box-shadow: 0px 1px 6px 0px rgba(black, 0.1)
             #basic-info
                 flex: 2
                 display: flex
@@ -62,6 +72,21 @@ body
             flex: 1
             padding-top: 5px
             color: $color-main1
+    #new-building-wrapper
+        position: fixed
+        z-index: 800
+        width: 100%
+        height: 100%
+        bottom: -100%
+        #new-building-section
+            width: 100%
+            height: 75%
+            background: $color-main1
+            position: absolute
+            bottom: 0
+            // bottom: -100%
+            border-radius: 24px 24px 0 0        
+
     footer
         position: fixed
         z-index: 1000
@@ -70,7 +95,7 @@ body
         background: white
         bottom: 0
         display: flex
-        #new-building
+        #new-building-btn
             position: absolute
             text-align: center
             font-size: 30px

@@ -34,9 +34,28 @@
 
 // var game = new Phaser.Game(1200, 800, Phaser.AUTO, 'test', null, true, false);
 
+
+// 確認螢幕方向
+$(window).on("deviceorientation resize", function( event ) {
+    if (window.matchMedia("(orientation: landscape)").matches) {
+        // $('#warning-wrapper').hide();
+        console.log('land')
+    }
+    if (window.matchMedia("(orientation: portrait)").matches) {
+        // $('#warning-wrapper').show();
+        console.log('por')
+    }
+});
+// if(window.innerHeight > window.innerWidth){
+//     // $('#warning-wrapper').show();
+// }
+// if(window.innerWidth > window.innerHeight){
+//     // $('#warning-wrapper').hide();
+// }
+
 var wH = window.innerHeight;
 var wW = window.innerWidth;
-$('#new-building').css({left:innerWidth/2-28});
+$('#new-building-btn').css({left:innerWidth/2-28});
 var game = new Phaser.Game(wW, wH, Phaser.AUTO,'test');
 
 var BasicGame = function (game) { };
@@ -64,6 +83,9 @@ var tiles = [
     2,3,4,1,0,2,3
 ];
 
+var tileMapScale = 2; // 地圖格子幾乘幾
+var mapAnchorY = 0.6 - 0.05*(tileMapScale-2); // 因應格子變多，改變初始地圖視點
+
 BasicGame.Boot.prototype =
 {
     preload: function () {
@@ -83,7 +105,7 @@ BasicGame.Boot.prototype =
 
         // This is used to set a game canvas-based offset for the 0, 0, 0 isometric coordinate - by default
         // this point would be at screen coordinates 0, 0 (top left) which is usually undesirable.
-        game.iso.anchor.setTo(0.5, 0.5);
+        game.iso.anchor.setTo(0.5, mapAnchorY);
 
 
     },
@@ -100,11 +122,11 @@ BasicGame.Boot.prototype =
         cursorPos = new Phaser.Plugin.Isometric.Point3();
 
         // 重新繪製圖面
-        $('#new-building').click(()=>{
-            tiles[3] = 6;
-            isoGroup.destroy();
-            this.spawnTiles();
-        });
+        // $('#new-building-btn').click(()=>{
+        //     tiles[3] = 6;
+        //     isoGroup.destroy();
+        //     this.spawnTiles();
+        // });
 
     },
     update: function () {
@@ -138,10 +160,10 @@ BasicGame.Boot.prototype =
     spawnTiles: function () {
         isoGroup = game.add.group();
         var tile;
-        var size = 76, scale = 2;
+        var size = 76;
         var i = 0;
-        for (var xx = 0; xx < size*scale; xx += size) {
-            for (var yy = 0; yy < size*scale; yy += size) {
+        for (var xx = 0; xx < size*tileMapScale; xx += size) {
+            for (var yy = 0; yy < size*tileMapScale; yy += size) {
                 tile = game.add.isoSprite(xx, yy, 0, tileArray[tiles[i]], 0, isoGroup);
                 tile.anchor.set(0.5, 1);
                 i++;
@@ -150,8 +172,14 @@ BasicGame.Boot.prototype =
     }
 };
 
-$('#new-building').click(()=>{
-    console.log(1);
+var isNewBuildingSectionShow = false;
+$('#new-building-btn').click(()=>{
+    if(isNewBuildingSectionShow == false){
+        $('#new-building-wrapper').stop().animate({bottom:0},300);
+    } else {
+        $('#new-building-wrapper').stop().animate({bottom:'-100%'},300);
+    }
+    isNewBuildingSectionShow = !isNewBuildingSectionShow;
 });
 
 game.state.add('Boot', BasicGame.Boot);
