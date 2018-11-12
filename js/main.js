@@ -4,13 +4,14 @@ $(function(){
 })
 function Exp_circle(){
  $('#portrait').each( function() {
-      var num = $(this).find('span').text() * 3.6 ;
-      if(num<=180){
-        $(this).find('.right').css('transform',"rotate("+num+"deg)");
+       
+      if(Exp<=180){
+        $(this).find('.right').css('transform',"rotate("+Exp+"deg)");
+        $(this).find('.left').css('transform',"rotate(0deg)");
       }
       else{
         $(this).find('.right').css('transform',"rotate(180deg)");
-        $(this).find('.left').css('transform',"rotate("+(num-180)+"deg)");
+        $(this).find('.left').css('transform',"rotate("+(Exp-180)+"deg)");
       }
     })
 }
@@ -29,7 +30,7 @@ function Exp_circle(){
 // if(window.innerWidth > window.innerHeight){
 //     $('#warning-wrapper').show();
 // }
-var Exp = $(".mask").find('span').text(Exp);
+var Exp = 180;   //need DATA in server
 var wH = window.innerHeight;
 var wW = window.innerWidth;
 $('#new-building-btn').css({left:innerWidth/2-28});
@@ -184,8 +185,8 @@ $('#new-building-btn').click(()=>{
         $('#new-building-wrapper').stop().animate({bottom:'-100%'},300);
     }
     isNewBuildingSectionShow = !isNewBuildingSectionShow;
-    Exp = Exp+10;
-    $(".mask").find('span').text(Exp);
+    // Update  Exp
+    Exp = (Exp + 108) %360; 
     Exp_circle();
 });
 // test
