@@ -11,6 +11,41 @@ body {
   background: red;
   overflow: scroll;
 }
+#container #warning-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1200;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+}
+#container #warning-wrapper #warning {
+  text-align: center;
+  width: 200px;
+  height: 110px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px 10px 10px 10px;
+}
+#container #warning-wrapper #warning h4 {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px 10px 0 0;
+}
+#container #warning-wrapper #warning p {
+  width: 100%;
+  height: 70px;
+  line-height: 20px;
+  font-size: 12px;
+  padding: 15px 0;
+  font-weight: 200;
+}
 #container header {
   font-size: 14px;
   position: fixed;
@@ -118,6 +153,7 @@ body {
   width: 100%;
   height: 100%;
   bottom: -100%;
+  color: white;
 }
 #container #new-building-wrapper #new-building-section {
   width: 100%;
@@ -126,6 +162,92 @@ body {
   position: absolute;
   bottom: 0;
   border-radius: 24px 24px 0 0;
+}
+#container #new-building-wrapper #new-building-section #center-title {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+}
+#container #new-building-wrapper #new-building-section #building-info-section {
+  width: 100%;
+  height: 78%;
+  overflow: scroll;
+  padding: 0 20px;
+}
+#container #new-building-wrapper #new-building-section #building-info-section .type {
+  width: 100%;
+  margin-bottom: 12px;
+}
+#container #new-building-wrapper #new-building-section #building-info-section .type .type-title {
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px 0 13px;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px 5px 0 0;
+}
+#container #new-building-wrapper #new-building-section #building-info-section .type .type-title span {
+  float: right;
+}
+#container #new-building-wrapper #new-building-section #building-info-section .type .building-list {
+  width: 100%;
+  height: auto;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  padding: 18px 13px 8px 13px;
+}
+#container #new-building-wrapper #new-building-section #building-info-section .type .building-list .active {
+  max-height: 1000px;
+}
+#container #new-building-wrapper #new-building-section #building-info-section .type .building-list ul {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.8s ease-in-out;
+}
+#container #new-building-wrapper #new-building-section #building-info-section .type .building-list ul li {
+  width: 100%;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.4);
+  margin-bottom: 10px;
+  display: flex;
+  border-radius: 7px;
+}
+#container #new-building-wrapper #new-building-section #building-info-section .type .building-list ul li .building-img {
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 7px;
+}
+#container #new-building-wrapper #new-building-section #building-info-section .type .building-list ul li .building-info {
+  padding: 8px 10px 10px 8px;
+  height: 70px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+#container #new-building-wrapper #new-building-section #building-info-section .type .building-list ul li .building-info .building-name {
+  font-size: 18px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+#container #new-building-wrapper #new-building-section #building-info-section .type .building-list ul li .building-info .building-name span {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 200;
+}
+#container #new-building-wrapper #new-building-section #building-info-section .type .building-list ul li .building-info .material {
+  font-weight: 200;
+  font-size: 12px;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 #container footer {
   position: fixed;

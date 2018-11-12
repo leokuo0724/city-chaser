@@ -1,40 +1,4 @@
-// // parameter
-// var gameWidth = 800;
-// var gameHeight = 480
-// var v_background = 0.2;
-
-// var game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO);
-
-// var GameState = {
-//     preload: function(){
-//         this.load.image('background', '../assets/background.jpg');
-//         this.load.image('mario1', '../assets/mario_1.png');
-//         this.load.image('mario2', '../assets/mario_2.png');
-//     },
-//     create: function(){  
-
-//         this.background = this.game.add.tileSprite(0, 0, 640, 360, 'background');
-
-//         this.mario1 = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'mario1');
-//         this.mario1.anchor.setTo(0.5,0);
-//         this.mario1.scale.setTo(0.1);
-
-//         this.mario2 = this.game.add.sprite(20,150,'mario2');
-//         this.mario2.anchor.setTo(0,0);
-//         this.mario2.scale.setTo(0.1);
-//     },
-//     update: function(){
-//         this.mario1.angle += 0.5;
-//         this.background.tilePosition.x += v_background;
-//     }
-// };
-
-// game.state.add('GameState', GameState);
-// game.state.start('GameState');
-
-// var game = new Phaser.Game(1200, 800, Phaser.AUTO, 'test', null, true, false);
-
-
+// 圓形進度初始
 $(function(){
     $('#portrait').each( function(index,el) {
       var num = $(this).find('span').text() * 3.6 ;
@@ -46,24 +10,22 @@ $(function(){
         $(this).find('.left').css('transform',"rotate("+(num-180)+"deg)");
       }
     })
-  })
+})
 
 // 確認螢幕方向
-$(window).on("deviceorientation resize", function( event ) {
-    if (window.matchMedia("(orientation: landscape)").matches) {
-        // $('#warning-wrapper').hide();
-        console.log('land')
-    }
-    if (window.matchMedia("(orientation: portrait)").matches) {
-        // $('#warning-wrapper').show();
-        console.log('por')
-    }
-});
+// $(window).on("deviceorientation resize", function( event ) {
+//     if (window.matchMedia("(orientation: landscape)").matches) {
+//         $('#warning-wrapper').show();
+//     }
+//     if (window.matchMedia("(orientation: portrait)").matches) {
+//         $('#warning-wrapper').hide();
+//     }
+// });
 // if(window.innerHeight > window.innerWidth){
-//     // $('#warning-wrapper').show();
+//     $('#warning-wrapper').hide();
 // }
 // if(window.innerWidth > window.innerHeight){
-//     // $('#warning-wrapper').hide();
+//     $('#warning-wrapper').show();
 // }
 
 var wH = window.innerHeight;
@@ -194,6 +156,14 @@ $('#new-building-btn').click(()=>{
     }
     isNewBuildingSectionShow = !isNewBuildingSectionShow;
 });
+
+$('.type-title').click(function(){
+    $(this).next().children().toggleClass('active');
+});
+
+// test
+// $('#new-building-wrapper').stop().animate({bottom:0},30);
+
 
 game.state.add('Boot', BasicGame.Boot);
 game.state.start('Boot');

@@ -13,7 +13,15 @@
 </head>
 <body>
     <div id="container">
-        <!-- city portrait & basic info -->
+        <!-- 提示螢幕方向 -->
+        <!-- <div id="warning-wrapper">
+            <div id="warning">
+                <h4>請旋轉您的螢幕</h4>
+                <p>為了提供良好的遊戲體驗<br>請將您的手機轉為直向</p>
+            </div>
+        </div> -->
+
+        <!-- 城市照片、金錢、人口 -->
         <header>
             <div id="upper-layer">
                 <div id="portrait-wrapper">
@@ -23,7 +31,7 @@
                         <!-- 進度圓 -->
                         <div class="circle_left"><div class="left"></div></div>                
                         <div class="circle_right"><div class="right"></div></div>
-                        <div class="mask"><span>90</span>%</div>
+                        <div class="mask"><span>90</span></div>
                     </div>
                 </div>
                 <div id="basic-info">
@@ -42,15 +50,82 @@
             <div id="lower-layer">台南市 Lv.<span>1</span></div>
         </header>
 
-        <!-- add new building layer -->
+        <!-- 興建建築 -->
         <div id="new-building-wrapper">
-            <div id="new-building-section"></div>
+            <div id="new-building-section">
+                <div id="center-title">興建建築</div>
+                <div id="building-info-section">
+                    <div class="type">
+                        <div class="type-title">住宅建築<span>v</span></div>
+                        <div class="building-list">
+                            <ul>
+                                <li>
+                                    <div class="building-img">img</div>
+                                    <div class="building-info">
+                                        <div class="building-name">茅草屋<span>人口+1</span></div>
+                                        <div class="material">金幣x30 木材x5 水x5 茅草x10</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="building-img">img</div>
+                                    <div class="building-info">
+                                        <div class="building-name">茅草屋<span>人口+1</span></div>
+                                        <div class="material">金幣x30 木材x5 水x5 茅草x10</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="building-img">img</div>
+                                    <div class="building-info">
+                                        <div class="building-name">茅草屋<span>人口+1</span></div>
+                                        <div class="material">金幣x30 木材x5 水x5 茅草x10</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="building-img">img</div>
+                                    <div class="building-info">
+                                        <div class="building-name">茅草屋<span>人口+1</span></div>
+                                        <div class="material">金幣x30 木材x5 水x5 茅草x10</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="type">
+                        <div class="type-title">公共建設<span>v</span></div>
+                        <div class="building-list">
+                            <ul>
+                                <li>
+                                    <div class="building-img">img</div>
+                                    <div class="building-info">
+                                        <div class="building-name">茅草屋<span>人口+1</span></div>
+                                        <div class="material">金幣x30 木材x5 水x5 茅草x10</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="building-img">img</div>
+                                    <div class="building-info">
+                                        <div class="building-name">茅草屋<span>人口+1</span></div>
+                                        <div class="material">金幣x30 木材x5 水x5 茅草x10</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="building-img">img</div>
+                                    <div class="building-info">
+                                        <div class="building-name">茅草屋<span>人口+1</span></div>
+                                        <div class="material">金幣x30 木材x5 水x5 茅草x10</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- phaser canvas -->
+        <!-- phaser canvas 所在位置 -->
         <div id="test"></div>
 
-        <!-- basic UI -->
+        <!-- 基礎 UI -->
         <footer>
             <div id="new-building-btn">+</div>
             <div id="collect-btn" class="footer-btn">收集資源</div>
