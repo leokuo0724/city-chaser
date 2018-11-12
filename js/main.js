@@ -194,7 +194,6 @@ $('#new-building-btn').click(()=>{
 
 game.state.add('Boot', BasicGame.Boot);
 game.state.start('Boot');
-=======
 // 點開建築list
 $('.type-title').click(function(){
     $(this).next().children().toggleClass('active-bd-list');
