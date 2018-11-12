@@ -201,13 +201,13 @@ body {
   overflow: hidden;
   padding: 18px 13px 8px 13px;
 }
-#container #new-building-wrapper #new-building-section #building-info-section .type .building-list .active {
-  max-height: 1000px;
+#container #new-building-wrapper #new-building-section #building-info-section .type .building-list .active-bd-list {
+  max-height: 800px;
 }
 #container #new-building-wrapper #new-building-section #building-info-section .type .building-list ul {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.8s ease-in-out;
+  transition: max-height 0.3s ease-in-out;
 }
 #container #new-building-wrapper #new-building-section #building-info-section .type .building-list ul li {
   width: 100%;

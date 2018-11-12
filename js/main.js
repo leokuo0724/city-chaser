@@ -34,6 +34,7 @@ var wH = window.innerHeight;
 var wW = window.innerWidth;
 $('#new-building-btn').css({left:innerWidth/2-28});
 var game = new Phaser.Game(wW, wH, Phaser.AUTO,'test');
+// var camera = new camera(game, 1, 0, 0, wW, wH);
 
 var BasicGame = function (game) { };
 
@@ -84,10 +85,15 @@ BasicGame.Boot.prototype =
         // this point would be at screen coordinates 0, 0 (top left) which is usually undesirable.
         game.iso.anchor.setTo(0.5, mapAnchorY);
 
-
     },
     create: function () {
-        game.backgrond = this.game.add.tileSprite(0, 0, wW, wH, 'bg');
+        var canvasBounds = 1500; //畫面可拖拉範圍，最大值為背景(3000)
+
+        game.world.setBounds(0,0, canvasBounds, canvasBounds);
+        game.camera.x = canvasBounds/2 - wW/2;
+        game.camera.y = canvasBounds/2 - wH/2;
+
+        game.backgrond = this.game.add.tileSprite(0, 0, 3000, 3000, 'bg');
 
         // Create a group for our tiles.
         // isoGroup = game.add.group();
@@ -129,6 +135,22 @@ BasicGame.Boot.prototype =
             }
         });
 
+        // 拉動
+        if (this.game.input.activePointer.isDown) {	
+            console.log(this.game.camera.x)
+            console.log(this.game.camera.y)
+            if (this.game.origDragPoint) {		
+                // move the camera by the amount the mouse has moved since last update		
+                this.game.camera.x += this.game.origDragPoint.x - this.game.input.activePointer.position.x;		
+                this.game.camera.y += this.game.origDragPoint.y - this.game.input.activePointer.position.y;	}	
+
+                // set new drag origin to current position	
+                this.game.origDragPoint = this.game.input.activePointer.position.clone();
+            } 
+        else {	
+            this.game.origDragPoint = null;
+        }
+
     },
     render: function () {
         // game.debug.text("isometric city!", 2, 90, "#ffffff");
@@ -149,6 +171,11 @@ BasicGame.Boot.prototype =
     }
 };
 
+game.state.add('Boot', BasicGame.Boot);
+game.state.start('Boot');
+
+
+// 點開興建建築button
 var isNewBuildingSectionShow = false;
 $('#new-building-btn').click(()=>{
     if(isNewBuildingSectionShow == false){
@@ -161,14 +188,14 @@ $('#new-building-btn').click(()=>{
     $(".mask").find('span').text(Exp);
     Exp_circle();
 });
-
-$('.type-title').click(function(){
-    $(this).next().children().toggleClass('active');
-});
-
 // test
 // $('#new-building-wrapper').stop().animate({bottom:0},30);
 
 
 game.state.add('Boot', BasicGame.Boot);
 game.state.start('Boot');
+=======
+// 點開建築list
+$('.type-title').click(function(){
+    $(this).next().children().toggleClass('active-bd-list');
+});
