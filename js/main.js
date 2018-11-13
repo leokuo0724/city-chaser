@@ -1,17 +1,20 @@
 // 圓形進度初始
 $(function(){
-    $('#portrait').each( function(index,el) {
-      var num = $(this).find('span').text() * 3.6 ;
-      if(num<=180){
-        $(this).find('.right').css('transform',"rotate("+num+"deg)");
+  Exp_circle();
+})
+function Exp_circle(){
+ $('#portrait').each( function() {
+       
+      if(Exp<=180){
+        $(this).find('.right').css('transform',"rotate("+Exp+"deg)");
+        $(this).find('.left').css('transform',"rotate(0deg)");
       }
       else{
         $(this).find('.right').css('transform',"rotate(180deg)");
-        $(this).find('.left').css('transform',"rotate("+(num-180)+"deg)");
+        $(this).find('.left').css('transform',"rotate("+(Exp-180)+"deg)");
       }
     })
-})
-
+}
 // 確認螢幕方向
 // $(window).on("deviceorientation resize", function( event ) {
 //     if (window.matchMedia("(orientation: landscape)").matches) {
@@ -20,14 +23,14 @@ $(function(){
 //     if (window.matchMedia("(orientation: portrait)").matches) {
 //         $('#warning-wrapper').hide();
 //     }
-// });
+// });:
 // if(window.innerHeight > window.innerWidth){
 //     $('#warning-wrapper').hide();
 // }
 // if(window.innerWidth > window.innerHeight){
 //     $('#warning-wrapper').show();
 // }
-
+var Exp = 180;   //need DATA in server
 var wH = window.innerHeight;
 var wW = window.innerWidth;
 $('#new-building-btn').css({left:innerWidth/2-28});
@@ -208,6 +211,9 @@ $('#new-building-btn').click(()=>{
         $('#new-building-wrapper').stop().animate({bottom:'-100%'},300);
     }
     isNewBuildingSectionShow = !isNewBuildingSectionShow;
+    // Update  Exp
+    Exp = (Exp + 108) %360; 
+    Exp_circle();
 });
 $('#new-building-wrapper').click(()=>{
     if(isNewBuildingSectionShow){
