@@ -49,18 +49,91 @@ tileArray[4] = 'tile_building_high';
 tileArray[5] = 'tile_building_tiny';
 tileArray[6] = 'tile_building_concrete';
 
+// var tiles = [
+//     3,4,2,6,1,1,0,
+//     0,1,0,2,3,4,0,
+//     0,1,2,1,0,1,0,
+//     0,0,0,3,2,1,0,
+//     0,1,4,0,3,0,0,
+//     1,0,0,0,4,2,0,
+//     2,3,4,1,0,2,3
+// ];
+
 var tiles = [
-    3,4,2,0,1,1,0,
-    0,1,0,2,3,4,0,
-    0,1,2,1,0,1,0,
-    0,0,0,3,2,1,0,
-    0,1,4,0,3,0,0,
-    1,0,0,0,4,2,0,
-    2,3,4,1,0,2,3
+    3,4,2,6
 ];
 
 var tileMapScale = 2; // 地圖格子幾乘幾
-var mapAnchorY = 0.6 - 0.05*(tileMapScale-2); // 因應格子變多，改變初始地圖視點
+var mapAnchorY = 0.55 - 0.03*(tileMapScale-2); // 因應格子變多，改變初始地圖視點
+
+// const upMapScale2to3 = () => {
+//     var newTiles = Object.assign([], tiles); //原本的部分
+//     var emptyArr = new Array(3*3-2*2); //增生的部分
+//     emptyArr.fill(0);
+    
+//     newTiles = newTiles.concat(emptyArr);
+
+//     newTiles[2] = 0;
+
+//     newTiles[3] = tiles[2];
+//     newTiles[4] = tiles[3];
+//     tiles = newTiles;
+// }
+
+
+
+const upMapScale = () => {
+    tileMapScale++;
+    const scale = tileMapScale;
+    const recur = scale-2;
+    var newTiles = Object.assign([], tiles); //原本的部分
+    var emptyArr = new Array(Math.pow(scale,2)-Math.pow(scale-1,2)); //增生的部分
+    
+    emptyArr.fill(0);
+    newTiles = newTiles.concat(emptyArr);
+
+    // assign 0 to 有變動、新區域
+    for(var i=1; i<=recur; i++){
+        newTiles[scale*i-1] = 0;
+    }
+    // 有變動的區域
+    for(var i=1; i<=recur; i++){
+        for(var j=scale*i; j<scale*(i+1)-1 ;j++){
+            newTiles[j] = tiles[j-i];
+        }
+    }
+    tiles = newTiles;
+}
+
+// if(tileMapScale == 4){
+//     const scale = tileMapScale;
+//     const recur = scale-2;
+//     upMapScale2to3();
+//     var newTiles = Object.assign([], tiles); //原本的部分
+//     var emptyArr = new Array(Math.pow(scale,2)-Math.pow(scale-1,2)); //增生的部分
+    
+//     emptyArr.fill(0);
+//     newTiles = newTiles.concat(emptyArr);
+
+//     // assign 0
+//     for(var i=1; i<=recur; i++){
+//         newTiles[scale*i-1] = 0;
+//     }
+//     for(var i=1; i<=recur; i++){
+//         for(var j=scale*i; j<scale*(i+1)-1 ;j++){
+//             newTiles[j] = tiles[j-i];
+//         }
+//     }
+//     // // -1
+//     // for(var i=scale; i<scale*2-1; i++){
+//     //     newTiles[i] = tiles[i-1];
+//     // }
+//     // // -2
+//     // for(var i=scale*2; i<scale*3-1; i++){
+//     //     newTiles[i] = tiles[i-2];
+//     // }
+//     tiles = newTiles;
+// }
 
 BasicGame.Boot.prototype =
 {
@@ -103,11 +176,11 @@ BasicGame.Boot.prototype =
         cursorPos = new Phaser.Plugin.Isometric.Point3();
 
         // 重新繪製圖面
-        // $('#new-building-btn').click(()=>{
-        //     tiles[3] = 6;
-        //     isoGroup.destroy();
-        //     this.spawnTiles();
-        // });
+        $('#city-level').click(()=>{
+            isoGroup.destroy();
+            upMapScale();
+            this.spawnTiles();
+        });
 
     },
     update: function () {

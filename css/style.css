@@ -144,8 +144,17 @@ body {
 }
 #container header #lower-layer {
   flex: 1;
-  padding-top: 5px;
   color: #03B5AA;
+  display: flex;
+}
+#container header #lower-layer #city-level {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#container header #lower-layer #lower-empty {
+  flex: 2;
 }
 #container #new-building-wrapper {
   position: fixed;
@@ -239,10 +248,10 @@ body {
 #container #new-building-wrapper #new-building-section #building-info-section .type .building-list ul li .building-info .building-name span {
   margin-left: 10px;
   font-size: 12px;
-  font-weight: 200;
+  font-weight: 300;
 }
 #container #new-building-wrapper #new-building-section #building-info-section .type .building-list ul li .building-info .material {
-  font-weight: 200;
+  font-weight: 300;
   font-size: 12px;
   flex: 1;
   display: flex;
