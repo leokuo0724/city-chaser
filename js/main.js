@@ -60,27 +60,11 @@ tileArray[6] = 'tile_building_concrete';
 // ];
 
 var tiles = [
-    3,4,2,6
+    3,4,2,0
 ];
 
 var tileMapScale = 2; // 地圖格子幾乘幾
 var mapAnchorY = 0.55 - 0.03*(tileMapScale-2); // 因應格子變多，改變初始地圖視點
-
-// const upMapScale2to3 = () => {
-//     var newTiles = Object.assign([], tiles); //原本的部分
-//     var emptyArr = new Array(3*3-2*2); //增生的部分
-//     emptyArr.fill(0);
-    
-//     newTiles = newTiles.concat(emptyArr);
-
-//     newTiles[2] = 0;
-
-//     newTiles[3] = tiles[2];
-//     newTiles[4] = tiles[3];
-//     tiles = newTiles;
-// }
-
-
 
 const upMapScale = () => {
     tileMapScale++;
@@ -105,35 +89,6 @@ const upMapScale = () => {
     tiles = newTiles;
 }
 
-// if(tileMapScale == 4){
-//     const scale = tileMapScale;
-//     const recur = scale-2;
-//     upMapScale2to3();
-//     var newTiles = Object.assign([], tiles); //原本的部分
-//     var emptyArr = new Array(Math.pow(scale,2)-Math.pow(scale-1,2)); //增生的部分
-    
-//     emptyArr.fill(0);
-//     newTiles = newTiles.concat(emptyArr);
-
-//     // assign 0
-//     for(var i=1; i<=recur; i++){
-//         newTiles[scale*i-1] = 0;
-//     }
-//     for(var i=1; i<=recur; i++){
-//         for(var j=scale*i; j<scale*(i+1)-1 ;j++){
-//             newTiles[j] = tiles[j-i];
-//         }
-//     }
-//     // // -1
-//     // for(var i=scale; i<scale*2-1; i++){
-//     //     newTiles[i] = tiles[i-1];
-//     // }
-//     // // -2
-//     // for(var i=scale*2; i<scale*3-1; i++){
-//     //     newTiles[i] = tiles[i-2];
-//     // }
-//     tiles = newTiles;
-// }
 
 BasicGame.Boot.prototype =
 {
@@ -208,8 +163,6 @@ BasicGame.Boot.prototype =
 
         // 拉動
         if (this.game.input.activePointer.isDown) {	
-            console.log(this.game.camera.x)
-            console.log(this.game.camera.y)
             if (this.game.origDragPoint) {		
                 // move the camera by the amount the mouse has moved since last update		
                 this.game.camera.x += this.game.origDragPoint.x - this.game.input.activePointer.position.x;		
@@ -256,10 +209,40 @@ $('#new-building-btn').click(()=>{
     }
     isNewBuildingSectionShow = !isNewBuildingSectionShow;
 });
+$('#new-building-wrapper').click(()=>{
+    if(isNewBuildingSectionShow){
+        $('#new-building-wrapper').stop().animate({bottom:'-100%'},300);
+        isNewBuildingSectionShow = !isNewBuildingSectionShow;
+    }
+});
 // test
 // $('#new-building-wrapper').stop().animate({bottom:0},30);
-
 // 點開建築list
 $('.type-title').click(function(){
-    $(this).next().children().toggleClass('active-bd-list');
+    event.stopPropagation();
+    $(this).next().children().toggleClass('active-list');
 });
+
+// 點開城市資源
+var isCityResourceShow = false;
+$('#resource-btn').click(function(){
+    if(isCityResourceShow == false){
+        $('#city-resource-wrapper').stop().animate({bottom:0},300);
+    } else {
+        $('#city-resource-wrapper').stop().animate({bottom:'-100%'},300);
+    }
+    isCityResourceShow = !isCityResourceShow;
+});
+$('#city-resource-wrapper').click(()=>{
+    if(isCityResourceShow){
+        $('#city-resource-wrapper').stop().animate({bottom:'-100%'},300);
+        isCityResourceShow = !isNewBuildinisCityResourceShowgSectionShow;
+    }
+});
+// test
+// $('#city-resource-wrapper').stop().animate({bottom:0},30);
+
+// $('#b1').click(function(){
+//     event.stopPropagation();
+//     console.log(1);
+// });

@@ -54,15 +54,15 @@
         </header>
 
         <!-- 興建建築 -->
-        <div id="new-building-wrapper">
-            <div id="new-building-section">
-                <div id="center-title">興建建築</div>
-                <div id="building-info-section">
+        <div id="new-building-wrapper" class="pop-up-wrapper">
+            <div id="new-building-section" class="pop-up-section">
+                <div class="center-title">興建建築</div>
+                <div class="info-section">
                     <div class="type">
                         <div class="type-title">住宅建築<span>v</span></div>
-                        <div class="building-list">
+                        <div class="list">
                             <ul>
-                                <li>
+                                <li id="b1">
                                     <div class="building-img">img</div>
                                     <div class="building-info">
                                         <div class="building-name">茅草屋<span>人口+1</span></div>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="type">
                         <div class="type-title">公共建設<span>v</span></div>
-                        <div class="building-list">
+                        <div class="list">
                             <ul>
                                 <li>
                                     <div class="building-img">img</div>
@@ -125,6 +125,50 @@
             </div>
         </div>
 
+        <!-- 查看資源 -->
+        <div id="city-resource-wrapper" class="pop-up-wrapper">
+                <div id="city-resource-section" class="pop-up-section">
+                    <div class="center-title">城市資源</div>
+                    <div class="info-section">
+                        <div class="type">
+                            <div class="type-title">基礎建材<span>v</span></div>
+                            <div class="list">
+                                <ul>
+                                    <li class="resource-li">
+                                        <div class="thumbnail">img</div>
+                                        <div class="resource-info">
+                                            <div>木頭</div>
+                                            <div>x <span>30</span></div>
+                                        </div>
+                                    </li>
+                                    <li class="resource-li">
+                                        <div class="thumbnail">img</div>
+                                        <div class="resource-info">
+                                            <div>石材</div>
+                                            <div>x <span>30</span></div>
+                                        </div>
+                                    </li>
+                                    <li class="resource-li">
+                                        <div class="thumbnail">img</div>
+                                        <div class="resource-info">
+                                            <div>茅草</div>
+                                            <div>x <span>30</span></div>
+                                        </div>
+                                    </li><li class="resource-li">
+                                        <div class="thumbnail">img</div>
+                                        <div class="resource-info">
+                                            <div>水</div>
+                                            <div>x <span>30</span></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
         <!-- phaser canvas 所在位置 -->
         <div id="test"></div>
 
@@ -132,7 +176,7 @@
         <footer>
             <div id="new-building-btn">+</div>
             <div id="collect-btn" class="footer-btn">收集資源</div>
-            <div id="source-btn" class="footer-btn">收集資源</div>
+            <div id="resource-btn" class="footer-btn">城市資源</div>
             <div id="develop-btn" class="footer-btn">收集資源</div>
             <div id="setting-btn" class="footer-btn">收集資源</div>
         </footer>
